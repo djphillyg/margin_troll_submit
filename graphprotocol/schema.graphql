@@ -1,0 +1,64 @@
+type Position @entity {
+  id: ID!,
+  trader: Bytes,
+  lender: Bytes,
+  principal: BigInt,
+  depositAmount: BigInt,
+  owedToken: Bytes,
+  heldToken: Bytes,
+  interestRate: BigInt,
+  callTimeLimit: Int,
+  maxDuration: Int,
+  marginCallStartAt: BigInt,
+  positionClosedAt: BigInt,
+  isMarginCalled: Boolean,
+  isClosed: Boolean,
+  collateralForceRecovered: Boolean,
+  closedInfo: PositionClosed,
+  marginCall: MarginCall,
+}
+
+type PositionIncrease @entity {
+  id: ID!,
+  position: Position,
+  timestamp: BigInt,
+  trader: Bytes,
+  lender: Bytes,
+  amountBorrowed: BigInt,
+  principalAdded: BigInt,
+  heldTokenFromSell: BigInt,
+  depositAmount: BigInt,
+  depositInHeldToken: Boolean,
+}
+
+
+type PositionClosed @entity {
+  id: ID!,
+  position: Position,
+  collateralForceRecovered: Boolean,
+  timestamp: BigInt,
+  closer: Bytes,
+  closeAmount: BigInt,
+  remainingAmount: BigInt,
+  owedTokenPaidToLender: BigInt,
+  payoutAmount: BigInt,
+  buybackCostInHeldToken: BigInt,
+  payoutInHeldToken: Boolean,
+}
+
+type MarginCall @entity {
+  id: ID!,
+  position: Position,
+  timestamp: BigInt,
+  isCancelled: Boolean,
+  requiredDeposit: BigInt,
+  depositAmount: BigInt,
+}
+
+
+type BucketIncrease @entity {
+  id: ID!,
+  timestamp: BigInt,
+  availableTotal: BigInt,
+  amount: BigInt
+}

@@ -1,0 +1,198 @@
+[
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "name": "beneficiary",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "name": "bucket",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "name": "amount",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "name": "weight",
+        "type": "uint256"
+      }
+    ],
+    "name": "Deposit",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "name": "withdrawer",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "name": "bucket",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "name": "weight",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "name": "owedTokenWithdrawn",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "name": "heldTokenWithdrawn",
+        "type": "uint256"
+      }
+    ],
+    "name": "Withdraw",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "name": "principalTotal",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "name": "bucketNumber",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "name": "principalForBucket",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "name": "amount",
+        "type": "uint256"
+      }
+    ],
+    "name": "PrincipalIncreased",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "name": "principalTotal",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "name": "bucketNumber",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "name": "principalForBucket",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "name": "amount",
+        "type": "uint256"
+      }
+    ],
+    "name": "PrincipalDecreased",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "name": "availableTotal",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "name": "bucketNumber",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "name": "availableForBucket",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "name": "amount",
+        "type": "uint256"
+      }
+    ],
+    "name": "AvailableIncreased",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "name": "availableTotal",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "name": "bucketNumber",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "name": "availableForBucket",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "name": "amount",
+        "type": "uint256"
+      }
+    ],
+    "name": "AvailableDecreased",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "name": "previousOwner",
+        "type": "address"
+      }
+    ],
+    "name": "OwnershipRenounced",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "name": "previousOwner",
+        "type": "address"
+      },
+      {
+        "indexed": true,
+        "name": "newOwner",
+        "type": "address"
+      }
+    ],
+    "name": "OwnershipTransferred",
+    "type": "event"
+  }
+]

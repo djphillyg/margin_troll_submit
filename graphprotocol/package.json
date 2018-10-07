@@ -1,0 +1,24 @@
+{
+  "name": "margin-subgraph",
+  "scripts": {
+    "codegen": "graph codegen --output-dir src/types/ subgraph.yaml",
+    "build": "graph build subgraph.yaml",
+    "build-ipfs": "graph build --ipfs /ip4/127.0.0.1/tcp/5001 subgraph.yaml",
+    "build-wast": "graph build -t wast subgraph.yaml",
+    "deploy": "graph deploy --ipfs /ip4/127.0.0.1/tcp/5001 --node http://127.0.0.1:8020/ -n margin subgraph.yaml",
+    "compose-clean": "docker-compose rm -f"
+  },
+  "devDependencies": {
+    "@dydxprotocol/node-service-lib-dev": "^1.0.1",
+    "@graphprotocol/graph-cli": "^0.3.2",
+    "@graphprotocol/graph-ts": "^0.3.3"
+  },
+  "dependencies": {
+    "@dydxprotocol/node-service-lib": "^1.1.7",
+    "@types/graphql": "^14.0.1",
+    "eth-ens-namehash": "^2.0.8",
+    "request-promise-native": "^1.0.5",
+    "twitter": "^1.7.1",
+    "web3": "^1.0.0-beta.36"
+  }
+}

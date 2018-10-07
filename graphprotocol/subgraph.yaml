@@ -1,0 +1,53 @@
+specVersion: 0.0.1
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum/contract
+    name: Margin
+    source:
+      address: '0xccbd3c844286a8bbbd937eacfe850fa6e1dafdf7'
+      abi: Margin
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.1
+      language: wasm/assemblyscript
+      file: ./src/margin.ts
+      entities:
+        - Position
+        - PositionIncrease
+        - PositionClosed
+        - MarginCall
+      abis:
+        - name: Margin
+          file: ./abis/MarginABI.json
+      eventHandlers:
+        - event: PositionOpened(bytes32,address,address,bytes32,address,address,address,uint256,uint256,uint256,uint256,uint32,uint32,bool)
+          handler: handlePositionOpened
+        - event: PositionIncreased(bytes32,address,address,address,address,bytes32,address,uint256,uint256,uint256,uint256,bool)
+          handler: handlePositionIncreased
+        - event: PositionClosed(bytes32,address,address,uint256,uint256,uint256,uint256,uint256,bool)
+          handler: handlePositionClosed
+        - event: CollateralForceRecovered(bytes32,address,uint256)
+          handler: handleCollateralForceRecovered
+        - event: MarginCallInitiated(bytes32,address,address,uint256)
+          handler: handleMarginCallInitiated
+        - event: MarginCallCanceled(bytes32,address,address,uint256)
+          handler: handleMarginCallCanceled
+  - kind: ethereum/contract
+    name: BucketLender
+    source:
+      address: '0xa83e3180197d8a8aaafaf0abfc4b42c27bcb4a5b'
+      abi: BucketLender
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.1
+      language: wasm/assemblyscript
+      file: ./src/margin.ts
+      entities:
+        - BucketDeposit
+      abis:
+        - name: BucketLender
+          file: ./abis/BucketLenderABI.json
+      eventHandlers:
+        - event: AvailableIncreased(uint256,uint256,uint256,uint256)
+          handler: handleBucketIncrease
